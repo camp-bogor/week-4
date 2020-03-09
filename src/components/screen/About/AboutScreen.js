@@ -6,7 +6,7 @@ class AboutScreen extends Component{
         return(
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                 <Text>About</Text>
-                <Button title="Go to back home" onPress={() => this.props.navigation.popToTop()}></Button>
+                <Button title="Go to Detail About" onPress={() => this.props.navigation.navigate('AboutDetail')}></Button>
             </View>
         )
     }

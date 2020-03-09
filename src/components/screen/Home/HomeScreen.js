@@ -35,6 +35,11 @@ class HomeScreen extends Component{
                     onPress={() => this.props.navigation.navigate('AddBook')}>
                         <Text style={{ color: "#fff" }}>Add Book</Text>
                 </TouchableOpacity>
+                <TouchableOpacity 
+                    style={{ backgroundColor: '#1C3F94', padding: 8, justifyContent: 'center', alignItems: 'center', width: 335, marginTop: 10}}
+                    onPress={() => this.props.navigation.navigate('Profile')}>
+                        <Text style={{ color: "#fff" }}>Profile</Text>
+                </TouchableOpacity>
             </View>
         )
     }

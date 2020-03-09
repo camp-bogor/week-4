@@ -5,7 +5,7 @@ export const getBooks = () => {
         type: 'GET_BOOKS',
         payload: axios({
             method: "get",
-            url: "http://192.168.1.8:8000/book"
+            url: "http://192.168.1.24:8000/book"
         })
     }
 }
@@ -15,7 +15,7 @@ export const createBook = (data) => {
         type: 'CREATE_BOOK',
         payload: axios({
             method: "POST",
-            url: "http://20.20.20.182:8000/book",
+            url: "http://192.168.1.24:8000/book",
             data: data
         })
     }
@@ -26,7 +26,7 @@ export const getBook = (bookId) => {
         type: 'GET_BOOK',
         payload: axios({
             method: "get",
-            url: `http://20.20.20.182:8000/book/${bookId}`
+            url: `http://192.168.1.24:8000/book/${bookId}`
         })
     }
 }
@@ -36,7 +36,7 @@ export const updateBook = (bookId, data) => {
         type: "UPDATE_BOOK",
         payload: axios({
             method: "put",
-            url: `http://20.20.20.182:8000/book/${bookId}`,
+            url: `http://192.168.1.24:8000/book/${bookId}`,
             data: data
         })
     }
@@ -47,7 +47,7 @@ export const deleteBook = (bookId) => {
         type: "DELETE_BOOK",
         payload: axios({
             method: "DELETE",
-            url: `http://20.20.20.182:8000/book/${bookId}`
+            url: `http://192.168.1.24:8000/book/${bookId}`
         })
     }
 }

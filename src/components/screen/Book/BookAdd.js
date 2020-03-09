@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Container, Content, Form, Item, Input, Button, Text } from 'native-base';
 
 import { createBook } from '../../redux/actions/books';
+import Spinner from '../Spinner/Spinner';
 
 class BookAdd extends Component{
 
@@ -18,18 +19,22 @@ class BookAdd extends Component{
     };
 
     onSubmit = async() => {
-        console.log("masuk sini")
-        this.props.dispatch(createBook(this.state));
-        this.props.navigation.navigate('Book');
+        await this.props.dispatch(createBook(this.state));
+
+        if(!this.props.books.books.isLoading){
+            this.props.navigation.navigate('Book');
+        }
+        
     }
 
     render(){
         return(
             <Container>
+                <Spinner isLoading={this.props.books.isLoading} />
                 <Content>
                     <Form style={{ marginRight: 10 }}>
                         <Item>
-                            <Input placeholder="name books" onChangeText={(text) => this.setState({ name: text })} />
+                            <Input placeholder="name books" onChangeText={(text) => this.setState({ name: text })} value="hahhaa" />
                         </Item>
                         <Item>
                             <Input placeholder="writer" onChangeText={(text) => this.setState({ writer: text })} />
@@ -56,4 +61,10 @@ class BookAdd extends Component{
     }
 }
 
-export default connect()(BookAdd);
+const mapStateToProps = (state) => {
+    return{
+        books: state.books
+    }
+}
+
+export default connect(mapStateToProps)(BookAdd);
